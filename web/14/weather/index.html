@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenWeatherMap API Call Using jQuery AJAX</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+    <h1>The weather today!</h1>
+    <h2><button id="reset">Reset »</button></h2>
+    <div class="container">
+        <div id="content">
+            <div id="viewContent">
+                <h4>Select the City for the getting the Weather Report</h4>
+                <select id="citySelect">
+                    <option value="Select">Select</option>
+                    <option value="5128581">New York</option>
+                    <option value="5391959">San Francisco</option>
+                    <option value="2643743">London</option>
+                    <option value="1275339">Mumbai</option>
+                    <option value="8199396">Santa Lucia</option>
+                    <option value="1581130">Hanoi</option>
+                </select>
+                <button id="submit">Submit</button>
+                <div class="textAlignCenter">
+                    <img src="loading.gif" />
+                </div>
+                <div id="message"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#reset").click(function (e) {
+                $("#citySelect").val("Select")
+                $("#message").html("")
+            });
+
+            $("#submit").click(function (e) {
+                var valid = validate();
+                $("#message").html(validate);
+                if (valid.length == 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "http://api.openweathermap.org/data/2.5/weather?id=" + $("#citySelect").val() + "&appid=de6d52c2ebb7b1398526329875a49c57&units=metric",
+                        dataType: "json",
+                        success: function (result, status, xhr) {
+                            var table = $("<table><tr><th>Weather Description</th></tr>");
+
+                            table.append("<tr><td>City:</td><td>" + result["name"] + "</td></tr>");
+                            table.append("<tr><td>Country:</td><td>" + result["sys"]["country"] + "</td></tr>");
+                            table.append("<tr><td>Current Temperature:</td><td>" + result["main"]["temp"] + "°C</td></tr>");
+                            table.append("<tr><td>Humidity:</td><td>" + result["main"]["humidity"] + "</td></tr>");
+                            table.append("<tr><td>Weather:</td><td>" + result["weather"][0]["description"] + "</td></tr>");
+
+                            $("#message").html(table);
+                        },
+                        error: function (xhr, status, error) {
+                            alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                        }
+                    });
+                }
+            });
+
+            $(document).ajaxStart(function () {
+                $("img").show();
+            });
+
+            $(document).ajaxStop(function () {
+                $("img").hide();
+            });
+
+            function validate() {
+                var errorMessage = "";
+                if ($("#citySelect").val() == "Select") {
+                    errorMessage += "► Select City";
+                }
+                return errorMessage;
+            }
+        });
+    </script>
+</body>
+</html>

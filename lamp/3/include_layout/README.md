@@ -1,0 +1,1 @@
+Simple PHP Layout using require and include used as demo at [CodeGym](http://codegym.vn)

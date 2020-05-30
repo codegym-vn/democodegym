@@ -1,0 +1,181 @@
+.navbar{
+    background-color: #2979ff;
+}
+.navbar-nav .nav-item .nav-link{
+    text-transform: uppercase;
+    color: white;
+}
+.hero-app{
+    background-color: #2979ff;
+    padding-top:150px;
+    padding-bottom: 50px;
+}
+a.app-btn {
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-right: 20px;
+    width: 218px;
+    height: 70px;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 30px;
+    box-shadow: 0px 6px 57px 0px rgba(17, 5, 35, 0.34);
+    margin-bottom: 30px;
+}
+a.app-btn.black {
+    background-color: #12091f;
+    position: relative;
+    top: 1px;
+    margin-right: 0;
+}
+a.app-btn img {
+    margin-right: 25px;
+    position: relative;
+    top: 14px;
+}
+span.top {
+    font-size: 12px;
+    padding-top: 8px;
+    display: inline-block;
+    color: #7b7682;
+}
+a.app-btn.black span.top {
+    color: #aaa3b5;
+}
+span.bottom {
+    padding-left: 53px;
+    color: #200a41;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    position: relative;
+    top: -4px;
+}
+a.app-btn.black span.bottom {
+    color: #ffffff;
+}
+.hero-app-content {
+    padding: 125px 30px;
+    color:white;
+}
+.features {
+    background-color: #f7faff;
+    padding-top:85px;
+    padding-bottom:25px;
+}
+.feature{
+    display: inline-flex;
+}
+.feature-img {
+    padding-right: 40px;
+}
+.feature-content {
+    width: 88%;
+    padding-left: 20px;
+}
+.feature-content h5 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #200a41;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+.feature-content p {
+    font-size: 15px;
+    line-height: 28px;
+    color: #777e86;
+    font-family: 'Poppins', sans-serif;
+}
+.welcome-area {
+    padding-top: 86px;
+    padding-bottom: 50px;
+}
+.welcome-area h2 {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 42px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 30px;
+}
+.welcome-area p{
+    font-family: 'Poppins', sans-serif;
+    color: #777e86;
+    font-size: 15px;
+    line-height: 28px;
+    margin-bottom: 15px;
+}
+.section-title {
+    font-size: 30px;
+    line-height: 65px;
+    color: #200a41;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+.best-app {
+    margin-top: 50px;
+}
+.download-area::before, .subscribe-area::before {
+    background-color: rgba(41, 121, 255, 0.9);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.download-area, .subscribe-area {
+    background-image: url("../images/cta.jpg");
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.download-content {
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+.download-content h1, .download-content h4, .download-content p {
+    color: white;
+}
+.pricing-area {
+    padding-top:85px;
+    padding-bottom:50px;
+}
+.price {
+    font-size: 30pt;
+    font-weight:700;
+}
+.price span.time-interval{
+    font-size: 14pt;
+    color: #777e86;
+    font-weight: normal;
+}
+.pricing-area .card .btn {
+    margin: 20px;
+}
+.subscribe-form {
+    position: relative;
+}
+.subscribe-input {
+    width: 90%;
+    position: relative;
+    border-radius: 40px;
+    border: none;
+    padding-left: 30px;
+    height: 60px;
+}
+.btn-subscribe {
+    position: absolute;
+    top: 5px;
+    right: 42px;
+    height: 50px;
+    border: none;
+    background-color: #12091f;
+    color: #fff;
+    border-radius: 36px;
+    width: 180px;
+    cursor: pointer;
+}

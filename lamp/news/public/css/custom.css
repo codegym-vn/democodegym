@@ -1,0 +1,30 @@
+body{
+    font-family: Arial;
+}
+.feature-image{
+    overflow: hidden;
+    max-height:150px;
+}
+.feature-image img{
+    width: 100%;
+}
+.article-item{
+    margin-bottom:10px;
+}
+.article-item-title{
+    margin: 0;
+}
+.article-controls{
+    margin: 10px 0;
+}
+.article-feature{
+    overflow: hidden;
+    height: 250px;
+}
+.article-feature img{
+    width: 100%;
+    height:auto;
+}
+.article-content{
+    height:400px;
+}

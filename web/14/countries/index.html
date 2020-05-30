@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery.ajax() - Display countries</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body class="col-md-12">
+<h1>Country Information</h1>
+<div id="display-resources">
+    <p>JSON proccessing example using jQuery parseJSON() function.</p>
+</div>
+<a href="#" class="btn btn-primary" id="retrieve-resources">Retrieve List</a>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#retrieve-resources').click(function () {
+            var displayResources = $('#display-resources');
+            displayResources.text('Loading data from JSON source...');
+
+            $.ajax({
+                type: "GET",
+                url: "https://raw.githubusercontent.com/mledoze/countries/master/countries.json",
+                success: function(result)
+                {
+                    var countries = $.parseJSON(result);
+                    var output="<table><thead><tr><th>Country</th><th>Capital</th><th>Region</th><th>Area</th></thead><tbody>";
+                    var i = 0;
+                    for (var i in countries)
+                    {
+                        output+="<tr><td>" + countries[i].name.common
+                            + "</td><td>" + countries[i].capital
+                            + "</td><td>" + countries[i].region
+                            + "</td><td>" + countries[i].area
+                            + "</td></tr>";
+                    }
+                    output+="</tbody></table>";
+
+                    displayResources.html(output);
+                    $("table").addClass("table");
+                }
+            });
+
+        });
+    });
+</script>
+</body>
+</html>
