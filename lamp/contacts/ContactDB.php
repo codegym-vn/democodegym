@@ -1,6 +1,7 @@
 <?php
 
 include_once 'Contact.php';
+include_once 'Config.php';
 
 /**
  * Created by PhpStorm.
@@ -12,7 +13,7 @@ class ContactDB
 {
     public function connect(){
         try{
-            return new PDO('mysql:host=127.0.0.1;dbname=demo_contacts', "demo", "codegym@demo123456");
+            return new PDO("mysql:host=$_ENV['db_host'];dbname=$_ENV['db_name']", "$_ENV['db_user']", "$_ENV['db_password']");
         }catch (PDOException $e) {
             echo $e;
         }
