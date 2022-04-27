@@ -13,7 +13,11 @@ class ContactDB
 {
     public function connect(){
         try{
-            return new PDO("mysql:host=$_ENV['db_host'];dbname=$_ENV['db_name']", "$_ENV['db_user']", "$_ENV['db_password']");
+            $db_host = $_ENV['db_host'];
+            $db_name = $_ENV['db_name'];
+            $db_user = $_ENV['db_user'];
+            $db_pwd = $_ENV['db_password'];
+            return new PDO("mysql:host=$db_host;dbname=$db_name", "$db_user", "$db_pwd");
         }catch (PDOException $e) {
             echo $e;
         }
