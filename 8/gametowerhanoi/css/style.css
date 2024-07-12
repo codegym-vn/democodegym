@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+canvas {
+    border: 1px solid black;
+}
+
+.game-title {
+    text-align: center;
+}
+.controls {
+    padding-bottom: 5px;
+}
