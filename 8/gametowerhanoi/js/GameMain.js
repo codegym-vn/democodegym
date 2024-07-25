@@ -135,6 +135,7 @@ class GameMain {
         if (this.towers[2].disks.length === this.numDisks) {
             setTimeout(() => {
                 alert("Congratulations! You have won!");
+                location.reload();
             }, 1000)
         }
     }
