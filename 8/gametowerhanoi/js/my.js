@@ -12,7 +12,7 @@ function changeNumberDisk() {
     const diskCountE = document.getElementById("diskCount");
     const diskCount = parseInt(diskCountE.value);
     if (MAX_TOTAL_DISK - diskCount <= 0) {
-        alert("The maximum number of disks is " +  MAX_TOTAL_DISK);
+        alert("The maximum number of disks is " +  diskCount);
         return;
     }
 

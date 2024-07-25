@@ -113,7 +113,6 @@ class GameMain {
     }
 
     endDrag(event) {
-        console.log(this)
         if (this.draggingDisk) {
             const rect = this.canvas.getBoundingClientRect();
             const endX = event.clientX - rect.left;

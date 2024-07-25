@@ -7,7 +7,7 @@ class CounterMove {
         ctx.beginPath();
         ctx.fillStyle = 'black';
         ctx.font = '20px Arial';
-        ctx.fillText(`Moves: ${this.count}`, 500, 50);
+        ctx.fillText(`Moves: ${this.count}`, 470, 50);
         ctx.closePath();
     }
 
