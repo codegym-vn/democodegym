@@ -1,24 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const diskCountE = document.getElementById("diskCount");
-    diskCountE.addEventListener("change", () => {
-        const diskCount = parseInt(diskCountE.value);
-        if (MAX_TOTAL_DISK - diskCount <= 0) {
-            alert("The maximum number of disks is " +  (diskCount - 1));
-            return;
-        }
-        start(diskCount);
-    })
+const game = new GameMain('my-canvas', DEFAULT_TOTAL_DISK);
 
+document.addEventListener('DOMContentLoaded', () => {
     const restartButton = document.getElementById("restartButton");
     restartButton.addEventListener("click", () => {
         document.getElementById("diskCount").value = DEFAULT_TOTAL_DISK
-        start(DEFAULT_TOTAL_DISK);
+        game.setNumberDisk(DEFAULT_TOTAL_DISK);
     })
 });
 
-function start(diskCount) {
-    const game = new GameMain('my-canvas', diskCount);
+function changeNumberDisk() {
+    const diskCountE = document.getElementById("diskCount");
+    const diskCount = parseInt(diskCountE.value);
+    if (MAX_TOTAL_DISK - diskCount <= 0) {
+        alert("The maximum number of disks is " +  MAX_TOTAL_DISK);
+        return;
+    }
+
+    if (diskCount < MIN_TOTAL_DISK) {
+        alert("The minimum number of disks is " + MIN_TOTAL_DISK);
+        return;
+    }
+
+    game.setNumberDisk(diskCount);
+}
+
+function start() {
     game.init();
 }
 
-start(DEFAULT_TOTAL_DISK);
+start();

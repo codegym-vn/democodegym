@@ -12,7 +12,6 @@ class GameMain {
     }
 
     init() {
-
         this.createTower();
         for (let i = this.numDisks; i > 0; i--) {
             this.towers[0].addDisk(new Disk(i));
@@ -21,7 +20,6 @@ class GameMain {
         this.canvas.addEventListener('mousedown', this.startDrag.bind(this));
         this.canvas.addEventListener('mousemove', this.drag.bind(this));
         this.canvas.addEventListener('mouseup', this.endDrag.bind(this));
-
         this.draw();
     }
 
@@ -115,6 +113,7 @@ class GameMain {
     }
 
     endDrag(event) {
+        console.log(this)
         if (this.draggingDisk) {
             const rect = this.canvas.getBoundingClientRect();
             const endX = event.clientX - rect.left;
@@ -123,7 +122,6 @@ class GameMain {
                 if (this.changPositionDisk(towerIndex)) {
                     this.changeCounterMoves();
                 }
-
                 this.towers[towerIndex].addDisk(this.draggingDisk.disk);
             } else {
                 this.towers[this.draggingDisk.from].addDisk(this.draggingDisk.disk);
@@ -152,5 +150,11 @@ class GameMain {
 
     changPositionDisk(towerIndex) {
         return this.draggingDisk.from !== towerIndex;
+    }
+
+    setNumberDisk(number) {
+        this.numDisks = number;
+        this.towers = [];
+        this.init();
     }
 }
